@@ -1,0 +1,10 @@
+name = Repeat Registration Email
+description = Adds a "Confirm email" field to user registration form.
+core = 7.x
+
+; Information added by Drupal.org packaging script on 2016-09-10
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "repeat_mail"
+datestamp = "1473522840"
+

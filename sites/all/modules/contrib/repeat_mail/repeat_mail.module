@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file
+ * Repeat Registration Email module.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function repeat_mail_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+  // Add email confirmation field.
+  if (isset($form['account']['mail'])) {
+    $form['account']['confirm_mail'] = $form['account']['mail'];
+    $form['account']['confirm_mail']['#title'] = t('Confirm E-mail');
+    $form['account']['confirm_mail']['#attributes']['autocomplete'] = 'off';
+    if (isset($form['account']['mail']['#weight'])) {
+      $form['account']['confirm_mail']['#weight'] = $form['account']['mail']['#weight'];
+    }
+    $form['#validate'][] = 'repeat_mail_form_user_register_form_validate';
+  }
+}
+
+/**
+ * Validate callback for user registration form.
+ */
+function repeat_mail_form_user_register_form_validate($form, &$form_state) {
+  $mail = trim($form_state['values']['mail']);
+  $mail2 = trim($form_state['values']['confirm_mail']);
+  if ($mail && $mail2 && $mail2 !== $mail) {
+    form_set_error('confirm_mail', t('The emails do not match.'));
+  }
+}
