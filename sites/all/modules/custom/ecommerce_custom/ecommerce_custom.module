@@ -1,0 +1,185 @@
+<?php
+ 
+ /** 
+ * Implements hook_menu() 
+ */ 
+ 
+ function ecommerce_custom_menu() { 
+	$items['random'] = array( 
+		'title' => 'Generate random fees', 
+		'description' =>'Generates 3 random fees, the sum of whose is 100.', 
+		'page callback' => 'drupal_get_form', 
+		'page arguments' => array('generate_rand'), 
+		'access callback' => TRUE, 
+		); 
+ 
+	$items['admin/structure/fee-title'] = array( 
+		'title' => 'Rename fees title', 
+		'description' => 'Change the name of the fees title', 
+		'page callback' => 'drupal_get_form', 
+		'page arguments' => array('config_fee_title'), 
+		'access arguments' => array('administer quicktabs'), 
+		'type' => MENU_NORMAL_ITEM, 
+		); 
+ 
+	return $items; 
+	
+
+ } 
+ 
+ /** 
+ * A function which takes the price of product, divides it into 3 random values and stores it in an array 
+ * 
+ * @param $price 
+ * price of the product. 
+ */ 
+ 
+ function generate_random_fee($price) { 
+	do { 
+		$random_percent1 = rand(25,40); 
+		$random_percent2 = rand(25,40); 
+		$random_percent3 = rand(25,40); 
+		$sum = $random_percent1 + $random_percent2 + $random_percent3; 
+	} while ( $sum != 100); 
+ 
+		$random_fee1 = $price * ($random_percent1/100); 
+		$random_fee2 = $price * ($random_percent2/100); 
+		$random_fee3 = $price * ($random_percent3/100); 
+		$sum2 = $random_fee1 + $random_fee2 + $random_fee3; 
+ 
+	$random_val = array('F1' => $random_fee1, 'F2' => $random_fee2, 'F3' => $random_fee3); 
+	return $random_val; 
+ } 
+ 
+ /** 
+ * Defines price component types for use in price component arrays. 
+ * 
+ * The price field data array includes a components array that keeps track of 
+ * the various components of a price that result in the price field's current 
+ * amount. A price field's amount column reflects the sum of all of its 
+ * components. Each component includes a component type and a price array 
+ * representing the amount, currency code, and data of the component. 
+ * 
+ * The Price module defines three default price component types: 
+ * - Base price: generally used to represent a product's base price as derived 
+ * from the product itself and manipulated by Rules; appears in price 
+ * component lists as the Subtotal 
+ * - Discount: used for generic discounts applied by Rules 
+ * - Fee: used for generic fees applied by Rules 
+ * 
+ * The Tax module also defines a price component type for each tax rate that 
+ * requests it. 
+ * 
+ * The price component type array structure includes the following keys: 
+ * - name: the machine-name of the price component type 
+ * - title: the translatable title of the price component for use in 
+ * administrative displays 
+ * - display_title: the translatable display title of the price component for 
+ * use in front end display; defaults to the title 
+ * - weight: the sort order of the price component type for use in listings of 
+ * combined price components contained in a price's components array 
+ * 
+ * @return 
+ * An array of price component type arrays keyed by name. 
+ */ 
+ function ecommerce_custom_commerce_price_component_type_info() { 
+	return array( 
+		'F1' => array( 
+			'title' => t('Fee 1'), 
+			'display_title' => t('Fee 1'), 
+			'weight' => -51, 
+			), 
+		'F2' => array( 
+			'title' => t('Fee 2'), 
+			'weight' => -52, 
+			), 
+		'F3' => array( 
+			'title' => t('Fee 3'), 
+			'weight' => -53, 
+			), 
+		); 
+ } 
+ 
+ /** 
+ * commerce_price.api.php: hook_commerce_price_formatted_components_alter(&$components, $price, $entity) 
+ * Lets modules alter price components prior to display through the "Formatted amount with components" display formatter. 
+ * 
+ * @param &$components 
+ * The array of totaled price components. 
+ * 
+ * @param $price 
+ * The price array the components came from. 
+ * 
+ * @param $entity 
+ * The entity the price belongs to. 
+ * 
+ */ 
+ 
+ function ecommerce_custom_commerce_price_formatted_components_alter(&$components, $price, $entity) { 
+	$line = commerce_line_item_load($entity->commerce_line_items['und'][0]['line_item_id']); 
+	$product = commerce_product_load($line->commerce_product['und'][0]['product_id']); 
+ 
+	$currency_code = ''; 
+	$currency_code = commerce_currency_load($currency_code); 
+//	$base_price = $price['amount']; 
+
+
+	// LETS SET A NEW VARIABLE FOR THE BASES PRICE TO PASS THE THE FUNCTION
+	   $base_price_set = $price['amount']; // $components['base_price']['price']['amount'] **This was causing an undefined index base_price error.
+	
+
+ 
+	// Changing the title, to be member price, and setting its weight. 
+//	$components['commerce_price_formatted_amount']['title'] = "Member Price"; 
+//	$components['commerce_price_formatted_amount']['weight'] = 100; 
+ 
+	// Removing the Subtotal lineitem. 
+//	if (isset($components['base_price'])) { 
+//		array_shift($components); 
+//	} 
+ 
+	// dividing the price into three random values if it is not a license to access the site
+	if($product->type != 'license_role') { 
+		$fee = generate_random_fee($base_price_set); 
+		$components['F1'] = array('title'=>variable_get('config_title_fee1'),'price'=>array('amount'=>$fee['F1'],'currency_code'=>$currency_code['code']) , 'weight' => -100); 
+		$components['F2'] = array('title'=>variable_get('config_title_fee2'),'price'=>array('amount'=>$fee['F2'],'currency_code'=>$currency_code['code']) , 'weight' => -99); 
+		$components['F3'] = array('title'=>variable_get('config_title_fee3'),'price'=>array('amount'=>$fee['F3'],'currency_code'=>$currency_code['code']) , 'weight' => -98); 
+ 
+	// setting the weight of the tax line item. 
+//	$components['tax|sample_tax']['weight'] = 19; 
+	} 
+//	dpm($components);
+//	dpm($price);
+//	dpm($entity);
+ } 
+ 
+ /** 
+ * 
+ *Implement hook_form(); 
+ */ 
+ function config_fee_title($form, &$form_state) { 
+	global $base_path;
+		
+	$form['config_title_fee1'] = array( 
+		'#type' => 'textfield', 
+		'#title' => t('Title 1'), 
+		'#description' => t('Title for first fee'), 
+		'#default_value' => variable_get('config_title_fee1'), 
+	); 
+ 
+	$form['config_title_fee2'] = array( 
+		'#type' =>'textfield', 
+		'#title' => t('Title 2'), 
+		'#description' => t('Title for second fee'), 
+		'#default_value' => variable_get('config_title_fee2'), 
+	); 
+ 
+	$form['config_title_fee3'] = array( 
+		'#type' =>'textfield', 
+		'#title' => t('Title 3'), 
+		'#description' => t('Title for third fee'), 
+		'#default_value' => variable_get('config_title_fee3'), 
+	); 
+ return system_settings_form($form); 
+
+ }

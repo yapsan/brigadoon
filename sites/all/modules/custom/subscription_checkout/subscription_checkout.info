@@ -1,0 +1,7 @@
+name = Membership Subscription Checkout
+description = Add memebership subscription recurring product to cart.
+core = 7.x
+package = fitvittle
+
+dependences[] = commerce
+dependences[] = commerce_cart

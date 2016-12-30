@@ -1,0 +1,18 @@
+ <?php
+
+
+/**
+ * Implements hook_message_presave().
+ * add !order-summary to custom message type
+ */
+
+function admin_message_custom_message_presave($message) {
+  if (!empty($message->mid) || $message->type != 'commerce_order_admin_order_notification_email') {
+    return;
+  }
+
+  $message->arguments['!order-summary'] = array(
+    'callback' => 'commerce_message_order_summary',
+    'pass message' => TRUE,
+  );
+}

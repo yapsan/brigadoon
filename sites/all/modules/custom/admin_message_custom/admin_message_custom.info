@@ -1,0 +1,5 @@
+name = Admin Message Custom
+description = Setup the admin order notification email
+core = 7.x
+
+package = fitvittle
