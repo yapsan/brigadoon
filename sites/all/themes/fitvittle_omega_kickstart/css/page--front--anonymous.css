@@ -1,0 +1,101 @@
+
+
+
+.page-front-anon-wrapper {
+
+//	background-image: url('wxbackground.jpeg');
+//	background-color: green;
+	
+}
+
+
+	
+	
+}
+
+#page-front-anon-content {
+	clear: both;
+//	background: url(fitvittle_bg.jpg);
+}
+
+.page-front-anon-header {
+    height: auto;
+	background: 0 0;
+    border: 0;
+//    position: absolute;
+//    z-index: 5;
+    width: 100%;
+    padding-bottom: 125px;
+}
+
+.page-front-anon-logo {
+	margin-left: 15%;
+	vertical-align: middle;
+	margin-top: 30px;
+//    color: #E50914;
+//    font-size: 2.8em;
+//    line-height: 90px;
+    float: left;
+}
+
+.page-front-anon-login {
+	float: right;
+	margin: 40px 15% 0px 0px;
+}
+
+
+
+.page-front-anon-login a  {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2698f2), color-stop(1, #207cca));
+	background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #2698f2 0%, #207cca 100%) repeat scroll 0 0;
+    line-height: normal;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    margin-left: 0px;
+    padding: 15px 20px;
+}
+
+a.join-button {
+	color: white;
+	font-size: 16px;
+	font-weight: 400;
+	padding-top: 20px;
+	padding-left: 40px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	display: block;
+	float: left;
+	margin-top: 20px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2698f2), color-stop(1, #207cca));
+	background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #2698f2 0%, #207cca 100%) repeat scroll 0 0;
+	border-radius: 4px;
+	//margin-left: 15%;
+
+
+}
+
+.page-front-anon-new-account {
+
+	margin-top: 5%;
+	float: left;
+	margin-left: 15%;
+	margin-right: 15%;
+	background-image: url('fitvittle_bg.jpeg');
+
+}
+
+.page-front-anon-new-account h2 {
+	
+	font-size: 2.3em;
+	color: 	#2F4F4F;
+	
+}
+
+
+.fpmarket {
+	font-size: 20px;
+	
+}
