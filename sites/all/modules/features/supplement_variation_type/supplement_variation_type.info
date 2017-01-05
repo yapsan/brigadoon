@@ -1,5 +1,5 @@
 name = supplement variation type
-description = supplement variation type with display included
+description = supplement variation type with supplement display included
 core = 7.x
 package = FV Features
 version = 7.x-0.99
