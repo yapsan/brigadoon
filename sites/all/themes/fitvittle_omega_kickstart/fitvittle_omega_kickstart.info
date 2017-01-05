@@ -1,8 +1,8 @@
 name = 'fitvittle_omega_kickstart'
-description = ''
+description = 'Omega kickstart subtheme for the fitvittle project.'
 core = '7.x'
 engine = 'phptemplate'
-screenshot = 'screenshot.png'
+screenshot = 'screenshot2.png'
 base theme = 'omega_kickstart'
 version = '1.x'
 
