@@ -1,0 +1,11 @@
+name = shop by brand or category
+description = The shop by category and brand views with menu links 
+core = 7.x
+package = FV Features
+version = 7.x-0.99
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = _z_list_of_brands
+features[views_view][] = _z_list_of_categories
+features_exclude[dependencies][ctools] = ctools

@@ -1,0 +1,175 @@
+
+
+/** I AMA HAVING LOTS OF TRUBLE MAKING MY CHANGES TO THIS THEME EVEN AFTER FOLLOWING THE 
+  ALL INSTRUCTION SO i AM GOING TO HACK THIS GLOBAL CSS SINCE THI IS THE ONLY ONE THAT SEEMS TO KEEP 
+  THE STYLING. I WILL CONFINE MY CHANGES TO THE END OF THE FILE AND KEEP A BACK UP OF MY CHANGES IN 
+  A SEPERATE FINE SO WHEN THIS DESTRIBUTION IS UPDATED I CAN EITHER ADD THE CHANGES IS A SEPERATE CSS FILE 
+  OR JUST APPEND THE CHANGES TO THE FOOT OF THE GLOBAL CSS AGAIN.
+  **/
+
+  // Tmeming for the "all products" page display
+
+.commerce-product-field.commerce-product-field-field-item-name.field-field-item-name.node-20-product-field-item-name {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.field-name-fiels-brand {
+    text-align: center;
+}
+
+
+.page-products .view-display-products li .content .commerce-product-field {
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.page-products .view-display-products li .content .field-name-field-item-name {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 14px;
+
+}
+
+.page-products .view-display-products li .content .field-name-field-brand {
+    text-align: center;
+}
+
+
+
+.field .field-name-field-item-name .field-type-taxonomy-term-reference .field-label-hidden {
+    font-size: 20px;
+}
+
+
+
+.view-display-id-block_1 .views-summary {
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    flex-flow: row wrap;
+    flex: 0 0 auto;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.view-display-id-block_1 .views-summary a {
+    background-color: #2698F2;
+    display: block;
+    color: #fff;
+    border-radius: 8px;
+    margin-bottom: 0.5625rem;
+    margin-right: 0.5265rem;
+    min-width: 2.1875rem;
+    padding: 0.25rem 0.312rem;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.view-display-id-page_1 h3{
+    color: #2f4f4f;
+}
+
+.view-display-id-page_1 .views-view-grid {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.view-id-_z_list_of_categories .item-list {
+  //  background-color: red;
+    -webkit-columns: 4 200px;
+    -moz-columns: 4 200px;
+    columns: 4 200px;
+    -webkit-column-gap: 4em;
+    -moz-column-gap: 4em;
+    column-gap: 4em;
+
+}
+
+.view-id-_z_list_of_categories .field-content a {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+
+// Theaming the welcome field on the welcome page for new members.
+
+a.welcome-link {
+  //  font-size: 16px;
+  // display: block;
+  //  font-weight: 400;
+  //  padding: 30px;
+    background-color: red;
+    text-decoration: underline;
+}
+
+// Theming the add to cart purchase membership form.
+
+.purchase-mem #edit-submit {
+    background-color: red;
+    background-image: none;
+    padding: 25px;
+    font-size: 18px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+
+
+
+
+/** Tmeming for the "all products" page display
+
+.commerce-product-field .commerce-product-field-field-item-name .field-field-item-name .node-17-product-field-item-name {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.field-name-fiels-brand {
+    text-align: center;
+}
+
+/** This is the styling that is added to the globa.css file since it seems
+ *  any changes made to the custome file otside of the base global.css file gets
+ *  not implemented.
+ *
+.node-license-role .field-name-field-product {
+    background: none;
+}
+
+.node-product-type .field-type-commerce-product-reference form.commerce-cart-add-to-cart-form-53 {
+    background: none;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.node-product-type .field-type-commerce-product-reference form.commerce-cart-add-to-cart-form-53 .form-submit {
+    background-image: none;
+    padding: 25px;
+    font-size: 18px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+
+.node-thanks .field-name-field-start-saving .welcome-link {
+    font-size: 18px;
+    padding: 30px;
+    color: white;
+    background-color: #2698F2;
+    float: right;
+}
+
+**/
+
+//.node-product-type .field-type-commerce-product-reference form.commerce-cart-add-to-cart-form-53 .form-submit

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the fv image importers feature.
+ */
+
+include_once 'fv_image_importers.features.inc';

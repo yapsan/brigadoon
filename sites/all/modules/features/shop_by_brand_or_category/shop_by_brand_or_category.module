@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the shop by brand or category feature.
+ */
+
+include_once 'shop_by_brand_or_category.features.inc';
