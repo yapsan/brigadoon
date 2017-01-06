@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the fv product importer feature.
+ */
+
+include_once 'fv_product_importer.features.inc';
