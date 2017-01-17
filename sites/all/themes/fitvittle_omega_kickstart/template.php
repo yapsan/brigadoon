@@ -13,11 +13,12 @@
  
  
 
-/************* WE NEED AN EXPLANATION OF EXACTLY WHAT IS FUNCTION DOSE OR IT WILL BE A PAIN TO REVISIT IT ********************** (1)
+
 
 function fitvittle_omega_kickstart_preprocess_page(&$variables) {
 	
 	global $user;
+
 
   if($user->uid == 0){	
 	
@@ -35,8 +36,15 @@ function fitvittle_omega_kickstart_preprocess_page(&$variables) {
 	  }
 
  }	
-	
-	
+
+
+
+
+	/**
+   * Display the non member front page for visitors to the
+     site who are not members and/or not loged-in
+   */
+
 	if ($variables['is_front'] && !$variables['logged_in']) {
     $variables['theme_hook_suggestions'][] ='page__front__anonymous';
   }
@@ -49,7 +57,7 @@ function fitvittle_omega_kickstart_preprocess_page(&$variables) {
  * the membership and cmpleated the checkout process.
  */
    
-/************************************************************ NOTE THAT THIS IS A PART OF THE TOP FUNCTION AND SHOULD REMOVE 1, 2 AND THIS WHICH IS 3 (3)*******
+
 
    if (!empty($variables['node']) && $variables['node']->type == 'thanks') {
     $variables['title'] = FALSE;
@@ -59,11 +67,12 @@ function fitvittle_omega_kickstart_preprocess_page(&$variables) {
     $variables['title'] = FALSE;
   }
 
+
   
 	
 } 
 
-********************************************************************************************************************************************************** (2)/
+
 
 
 
@@ -75,7 +84,7 @@ function fitvittle_omega_kickstart_preprocess_page(&$variables) {
  * and also redirecting to front page to sign up for membership.
  */
 
-/*****************************************************************************************************************************************************************************
+
 function fitvittle_omega_kickstart_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'user_login') {
     $form['name']['#prefix']  = '<div id="' . $form_id . '_form">';
@@ -106,7 +115,7 @@ function fitvittle_omega_kickstart_form_alter(&$form, &$form_state, $form_id) {
   //dsm($form);
 }
 
-*************************************************************************************************************************************************************************/
+
 
 
 
@@ -116,7 +125,7 @@ function fitvittle_omega_kickstart_form_alter(&$form, &$form_state, $form_id) {
  * and also making some other minor changes if needed.
 */
 
-/**************************************************************************************************************************************************************************************
+
 function fitvittle_omega_kickstart_form_commerce_cart_add_to_cart_form_53_alter(&$form, &$form_state) {
   $form['submit']['#value'] = t('Purchase your membership');
   $form['submit']['#prefix'] = '<div class="purchase-mem">';
@@ -143,7 +152,7 @@ function fitvittle_omega_kickstart_form_commerce_cart_add_to_cart_form_53_alter(
 }
  
 
- ***********************************************************************************************************************************************************************************/
+
  
  
  
@@ -151,6 +160,70 @@ function fitvittle_omega_kickstart_form_commerce_cart_add_to_cart_form_53_alter(
  
  
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  
  
