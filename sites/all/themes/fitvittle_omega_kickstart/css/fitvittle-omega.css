@@ -124,6 +124,38 @@ a.welcome-link {
 }
 
 
+/** THIS THEMES THE BECOME A MEMBER PAGE AND TO BECOME A MEMBER BUTTON
+ *  ON THE ADD TO CART FORM FOR LICENSE PURCHASE BUT THIS SEEMS TO WORK.  I WILL USE THE HACK UNTIL I FIND
+ *  A MORE ELEGANT SOLUTION.
+ **/
+
+    .node-license-role .field-name-field-product {
+    background: none;
+}
+
+.node-product-type .field-type-commerce-product-reference form.commerce-cart-add-to-cart-form-53 {
+    background: none;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.node-product-type .field-type-commerce-product-reference form.commerce-cart-add-to-cart-form-53 .form-submit {
+    background-image: none;
+    padding: 25px;
+    font-size: 18px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+
+.node-thanks .field-name-field-start-saving .welcome-link {
+    font-size: 18px;
+    padding: 30px;
+    color: white;
+    background-color: #2698F2;
+    float: right;
+}
+
 
 
 
