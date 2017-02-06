@@ -86,7 +86,10 @@
  */
 ?>
 
+
+
 <div id="page-front-wrapper" class="page-front-wrapper page-front-anon-wrapper">
+
 
 	
 	<div id="page-front-anon-header" class="page-front-anon-header">
@@ -110,9 +113,14 @@
 	
 	<div id="page-front-anon-content" class="page-front-anon-content">
 		
-		<?php print render($page['content']); ?>
+		<!--
+		<?php // print render($page['content']); ?>
+		-->
+
 		<div class="page-front-anon-new-account">
+         
           <h2>YOU’VE COME A LONG WAY…AND YET THE JOURNEY HAS ONLY JUST BEGAN.</h2>
+		 
 		  <div class="fpmarket">
 			<p>At fitvittle we understand the commitment, you didn’t wait for anyone…you chose to change.  You understood that nothing works unless you do.  So you decided to put in the hard work, hard training and hard dieting.</p>
 			<p>But while you are doing benches and curls, we are making sure that you have the energy to keep going and your supplement budget doesn’t put your wallet on a diet.  With a yearly membership of $79.00 you will enjoy …….</p>
@@ -121,15 +129,20 @@
 		  </div>
 		  
           <a href="join/become-a-member" class="join-button">Become a  Member Join Now</a>
+      
        </div>
 	
 	</div>
 	
-	<?php //if ($page['footer']): ?>
+<!--
+	<?php // if ($page['footer']): ?>
 	<div id="page-front-anon-footer" class="page-front-anon-footer">
-		<?php print render($page['footer']); ?>
+		<?php //print render($page['footer']); ?>
 	</div>
 	<?php // endif; ?>
 	
+-->
+
 
 </div>
+
